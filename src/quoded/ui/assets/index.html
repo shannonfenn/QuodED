@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>QuodED Workspace</title>
+    <link rel="stylesheet" href="/assets/styles.css" />
+  </head>
+  <body>
+    <div class="backdrop"></div>
+    <header class="hero">
+      <div class="brand">
+        <div class="logo">QuodED</div>
+      </div>
+      <div class="controls">
+        <div class="control-group">
+          <label for="doc-select">Document</label>
+          <select id="doc-select"></select>
+        </div>
+        <button id="doc-info-toggle" class="btn ghost">Info</button>
+        <button id="segments-toggle" class="btn ghost">Segments</button>
+        <button id="refresh-btn" class="btn primary">Refresh</button>
+      </div>
+    </header>
+
+    <nav class="tabs">
+      <button class="tab" data-target="document">Document</button>
+      <button class="tab" data-target="tasks">Tasks</button>
+      <button class="tab" data-target="verification">Verification</button>
+      <button class="tab" data-target="orchestration">Orchestration</button>
+    </nav>
+
+    <main>
+      <section id="document" class="panel">
+        <div class="card pdf-card">
+          <div class="pdf-head">
+            <div>
+              <h3>PDF</h3>
+              <div id="doc-meta" class="muted">Loading manifest...</div>
+            </div>
+            <div class="pdf-controls">
+              <button id="open-pdf" class="btn ghost">Open PDF</button>
+            </div>
+          </div>
+          <div class="pdf-frame">
+            <div id="pdf-pages" class="pdf-pages"></div>
+            <div id="pdf-empty" class="muted">Rendering pages...</div>
+          </div>
+        </div>
+      </section>
+
+      <section id="tasks" class="panel">
+        <div class="panel-head">
+          <h2>Tasks</h2>
+          <p class="muted">Derived from segments. Track status and backend assignment.</p>
+        </div>
+        <div class="card">
+          <div id="task-summary" class="summary"></div>
+          <div id="tasks-list" class="list"></div>
+        </div>
+      </section>
+
+      <section id="verification" class="panel">
+        <div class="panel-head">
+          <h2>Verification</h2>
+          <p class="muted">Policy scans for each backend. Scan results update on refresh.</p>
+        </div>
+        <div id="policy-grid" class="grid"></div>
+      </section>
+
+      <section id="orchestration" class="panel">
+        <div class="panel-head">
+          <h2>Orchestration</h2>
+          <p class="muted">Agent runs and event logs from the CLI.</p>
+        </div>
+        <div class="grid">
+          <div class="card">
+            <h3>Runs</h3>
+            <div id="runs-list" class="list"></div>
+          </div>
+          <div class="card">
+            <h3>Run Detail</h3>
+            <div id="run-detail" class="muted">Select a run to view events.</div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="foot">
+      <span>Local UI. Data from .quoded workspace.</span>
+      <span id="status" class="muted"></span>
+    </footer>
+
+    <aside id="segments-sidebar" class="sidebar hidden">
+      <div class="sidebar-header">
+        <div>
+          <h3>Segments</h3>
+          <div class="muted">Jump from artifact to page location.</div>
+        </div>
+        <button id="segments-close" class="btn ghost">Close</button>
+      </div>
+      <div id="segment-summary" class="summary"></div>
+      <div id="segments" class="list"></div>
+    </aside>
+
+    <div id="doc-info" class="info-panel hidden">
+      <div class="info-header">
+        <h3>Document Info</h3>
+        <button id="doc-info-close" class="btn ghost">Close</button>
+      </div>
+      <div id="manifest"></div>
+    </div>
+
+    <script src="/assets/app.js"></script>
+  </body>
+</html>

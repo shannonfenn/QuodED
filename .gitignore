@@ -1,0 +1,38 @@
+# Generated project workspaces / caches
+.quoded/
+.uv-cache/
+.venv/
+
+# Local scratch
+tmp/
+
+# Python build artifacts
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+
+# Tool caches
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# OS / editors
+.DS_Store
+.idea/
+.vscode/
+
+# Generated outputs
+output/
+
+# Browser automation artifacts
+.playwright-cli/
+
+# Logs / env
+*.log
+.env
+.env.*
+!.env.example
